@@ -5,6 +5,8 @@
         Inspections,
         SoakawayReports,
         SoakawayReportDetails,
-        Home
+        Home,
+        TrlDcpReports,
+        Holebase
     }
 }

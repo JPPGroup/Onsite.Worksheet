@@ -17,6 +17,7 @@ namespace Onsite.Worksheets.ViewModels
         private readonly IInspectionRepository _inspectionRepository;
         private InspectionViewModel _selectedInspection;
 
+        public string DisplayText { get; }
         public InspectionViewModel SelectedInspection
         {
             get => _selectedInspection;
@@ -31,8 +32,6 @@ namespace Onsite.Worksheets.ViewModels
 
             DisplayText = "This is the inspection detail page!";
         }
-
-        public string DisplayText { get; private set; }
 
         public override async void OnNavigatedTo(NavigatedToEventArgs e, Dictionary<string, object> viewModelState)
         {

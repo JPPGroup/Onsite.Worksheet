@@ -1,5 +1,4 @@
 ﻿using Onsite.Worksheets.UILogic.Abstracts;
-using Onsite.Worksheets.UILogic.ViewModels;
 using Prism.Windows.AppModel;
 using Prism.Windows.Mvvm;
 using Prism.Windows.Navigation;
@@ -14,13 +13,8 @@ namespace Onsite.Worksheets.ViewModels
     {
         private readonly IAlertMessageService _alertMessageService;
         private readonly IResourceLoader _resourceLoader;
-        private InspectionViewModel _selectedInspection;
 
-        public InspectionViewModel SelectedInspection
-        {
-            get => _selectedInspection;
-            set => SetProperty(ref _selectedInspection, value);
-        }
+        public string DisplayText { get; private set; }
 
         public SoakawayReportDetailPageViewModel(IAlertMessageService alertMessageService, IResourceLoader resourceLoader)
         {
@@ -30,8 +24,6 @@ namespace Onsite.Worksheets.ViewModels
             DisplayText = "This is the soakaway report details page!";
         }
 
-        public string DisplayText { get; private set; }
-
         public override async void OnNavigatedTo(NavigatedToEventArgs e, Dictionary<string, object> viewModelState)
         {
             var errorMessage = string.Empty;
@@ -40,8 +32,6 @@ namespace Onsite.Worksheets.ViewModels
                 var reportId = e.Parameter as string; //TODO: cast as guid
                 DisplayText = $"Soakaway report details for {reportId}!";
 
-                //var selectedInspection = await _inspectionRepository.GetAsync(inspectionId);
-                //SelectedInspection = new InspectionViewModel(selectedInspection, _inspectionRepository, _alertMessageService, _resourceLoader);
             }
             catch (Exception ex)
             {

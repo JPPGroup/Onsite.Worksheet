@@ -1,23 +1,22 @@
+using Microsoft.Xaml.Interactivity;
 using System;
 using System.Reflection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
-using Microsoft.Xaml.Interactivity;
 
 namespace Onsite.Worksheets.Behaviors
 {
     public class NavigateWithEventArgsToPageAction : DependencyObject, IAction
     {
         public string TargetPage { get; set; }
-
         public string EventArgsParameterPath { get; set; }
 
         object IAction.Execute(object sender, object parameter)
         {
             // Walk the ParameterPath for nested properties.
             var propertyPathParts = EventArgsParameterPath.Split('.');
-            object propertyValue = parameter;
+            var propertyValue = parameter;
             foreach (var propertyPathPart in propertyPathParts)
             {
                 var propInfo = propertyValue.GetType().GetTypeInfo().GetDeclaredProperty(propertyPathPart);
@@ -33,8 +32,7 @@ namespace Onsite.Worksheets.Behaviors
         private Frame GetFrame(DependencyObject dependencyObject)
         {
             var parent = VisualTreeHelper.GetParent(dependencyObject);
-            var parentFrame = parent as Frame;
-            if (parentFrame != null)
+            if (parent is Frame parentFrame)
             {
                 return parentFrame;
             }

@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HolebasePageMenuItemDisplayName" xml:space="preserve">
+    <value>Holebase</value>
+  </data>
   <data name="InspectionsPageMenuItemDisplayName" xml:space="preserve">
     <value>Structural Inspections</value>
   </data>
   <data name="SoakawayReportsPageMenuItemDisplayName" xml:space="preserve">
     <value>Soakaway Reports</value>
+  </data>
+  <data name="TrlDcpReportsPageMenuItemDisplayName" xml:space="preserve">
+    <value>DCP Reports</value>
   </data>
 </root>
